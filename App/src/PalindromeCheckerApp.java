@@ -4,40 +4,37 @@ public class PalindromeCheckerApp {
 import java.util.*;
 
 
-        public static void main(String[] args) {
+       import java.util.*;
+    public static void main(String[] args) {
 
-            // Input string
-            String input = "civic";
+        // Input string
+        String input = "refer";
 
-            // Create Queue (FIFO)
-            Queue<Character> queue = new LinkedList<>();
+        // Create Deque
+        Deque<Character> deque = new ArrayDeque<>();
 
-            // Create Stack (LIFO)
-            Stack<Character> stack = new Stack<>();
-
-            // Insert characters into both
-            for (char c : input.toCharArray()) {
-                queue.add(c);   // enqueue
-                stack.push(c);  // push
-            }
-
-            // Assume palindrome
-            boolean isPalindrome = true;
-
-            // Compare until queue is empty
-            while (!queue.isEmpty()) {
-
-                char fromQueue = queue.remove(); // dequeue (front)
-                char fromStack = stack.pop();    // pop (top)
-
-                if (fromQueue != fromStack) {
-                    isPalindrome = false;
-                    break;
-                }
-            }
-
-            // Output result
-            System.out.println("Input : " + input);
-            System.out.println("Is Palindrome? : " + isPalindrome);
+        // Add characters into deque
+        for (char c : input.toCharArray()) {
+            deque.add(c);
         }
+
+        // Assume palindrome
+        boolean isPalindrome = true;
+
+        // Compare front and rear
+        while (deque.size() > 1) {
+
+            char front = deque.removeFirst(); // from front
+            char rear = deque.removeLast();   // from rear
+
+            if (front != rear) {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        // Output result
+        System.out.println("Input : " + input);
+        System.out.println("Is Palindrome? : " + isPalindrome);
     }
+}
