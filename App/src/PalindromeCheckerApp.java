@@ -7,7 +7,7 @@ public class PalindromeCheckerApp {
 
         System.out.println("Welcome to the Palindrome Checker App!");
         System.out.println("Version: " + VERSION);
-        System.out.println("This app checks if a given string is a palindrome.");
+        System.out.println(" git This app checks if a given string is a palindrome.");
         System.out.println();
 
 
